@@ -5,7 +5,7 @@ namespace TicTacToe.GameObjects
 {
     public class Game : IPrototype<Game>
     {
-        private bool isFirstPlayersTurn;
+        public bool isFirstPlayersTurn;
 
         /// <summary>
         /// Creates a new game object.

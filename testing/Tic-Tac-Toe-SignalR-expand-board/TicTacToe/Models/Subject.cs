@@ -4,7 +4,7 @@ namespace TicTacToe.Models
 {
     public class Subject
     {
-        protected List<Obstacle> observers;
+        public List<Obstacle> observers;
 
         /// <summary>
         /// constructor

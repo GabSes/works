@@ -10,7 +10,7 @@ namespace TicTacToe.GameObjects
         /// <summary>
         /// The number of pieces that have been placed on the board.
         /// </summary>
-        private int totalPiecesPlaced { get; set; }
+        public int totalPiecesPlaced { get; set; }
         /// <summary>
         /// Size of the board 3, 4, 5
         /// </summary>
@@ -39,7 +39,7 @@ namespace TicTacToe.GameObjects
         /// </summary>
         public Cell[,] Pieces { get; private set; }
 
-        protected void Set(int n)
+        public void Set(int n)
         {
             BoardSize = n;
             Pieces = new Cell[n, n];

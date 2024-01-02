@@ -5,7 +5,7 @@ namespace TicTacToe.GameObjects;
 
 public class Board3 : Board
 {
-    private IWinningStrategy winningStrategy;
+    public IWinningStrategy winningStrategy;
 
     public Board3()
     {
