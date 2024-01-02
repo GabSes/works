@@ -1,0 +1,108 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tic-Tac-Toe</title>
+
+    <style>
+        table {
+            margin: 0 auto;
+            table-layout: fixed;
+            font-size: 50px;
+        }
+
+        table td {
+            width: 100px;
+            height: 100px;
+        }
+
+        table tr {
+            border-bottom: 3px solid black;
+        }
+        table tr:last-child {
+            border-bottom: none;
+        }
+
+        table td {
+            border-right: 3px solid black;
+        }
+        table td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <main class="container text-center">
+        <h1>Tic-Tac-Toe</h1>
+
+        <div class="d-flex flex-row mx-auto justify-content-center">
+            @* Host game *@
+            <div>
+                <label class="sr-only control-label mb-2" for="roomName">Room name</label>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="form-group mx-sm-3 mb-2" id="hostGameGroup">
+                        <input type="text" class="form-control" id="roomName" placeholder="Room name" autofocus />
+                    </div>
+                    <button type="submit" id="hostGame" class="btn btn-info mb-2">Host Game</button>
+                </div>
+                <p id="roomNameStatus" class="help-block">If you want to host the game please enter <br> room name and username.</p>
+            </div>
+
+            <div class="vr mx-auto"></div>
+
+            <div class="row align-content-center">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label>Choose board size: &nbsp </label>
+                            <select id="boardSize">
+                                <option value="3">3x3</option>
+                                <option value="4">4x4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Enable obstacles: &nbsp </label>
+                            <input type="checkbox" id="obstacles"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vr mx-auto"></div>
+
+            @* Join game *@
+            <div class="">
+                <label class="sr-only control-label mb-2" for="username">Username</label>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" class="form-control" id="username" placeholder="Username" autofocus />
+                    </div>
+                    <button type="submit" id="joinGame" class="btn btn-primary mb-2">Join Game</button>
+                </div>
+                <p id="usernameStatus" class="help-block">Please enter your desired username.</p>
+            </div>
+        </div>
+
+        <p id="gameStatus" class="help-block my-3"></p>
+
+        <table id="tableHidden" hidden>
+            <tbody id="board">
+            </tbody>
+        </table>
+
+        <hr class="hr" />
+
+        <div class="row">
+            <div class="col-4">
+                <p id="deep"></p>
+            </div>
+            <div class="col-4">
+                <p id="original"></p>
+            </div>
+            <div class="col-4">
+                <p id="shallow"></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tic-Tac-Toe</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-7 text-center border-right">
+                <h1>Tic-Tac-Toe</h1>
+                <div class="d-flex flex-row mx-auto justify-content-center">
+                    @* Host game *@
+                    <div>
+                        <label class="sr-only control-label mb-2" for="roomName">Room name</label>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="form-group mx-sm-3 mb-2" id="hostGameGroup">
+                                <input type="text" class="form-control" id="roomName" placeholder="Room name" autofocus />
+                            </div>
+                            <button type="submit" id="hostGame" class="btn btn-info mb-2">Host Game</button>
+                        </div>
+                        <p id="roomNameStatus" class="help-block">If you want to host the game please enter <br> room name and username.</p>
+                    </div>
+
+                    <div class="vr mx-auto"></div>
+
+                    <div class="row align-content-center">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label>Choose board size: &nbsp </label>
+                                    <select id="boardSize">
+                                        <option value="3">3x3</option>
+                                        <option value="4">4x4</option>
+                                        <option value="5">5x5</option>
+                                        <option value="6">6x6</option>
+                                        <option value="9">9x9 (Mega)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>Enable obstacles: &nbsp </label>
+                                    <input type="checkbox" id="obstacles" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vr mx-auto"></div>
+
+                    @* Join game *@
+                    <div class="">
+                        <label class="sr-only control-label mb-2" for="username">Username</label>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <input type="text" class="form-control" id="username" placeholder="Username" autofocus />
+                            </div>
+                            <button type="submit" id="joinGame" class="btn btn-primary mb-2">Join Game</button>
+                        </div>
+                        <p id="usernameStatus" class="help-block">Please enter your desired username.</p>
+                    </div>
+                </div>
+
+                <p id="gameStatus" class="help-block my-3"></p>
+
+                <table id="tableHidden" hidden>
+                    <tbody id="board">
+                    </tbody>
+                </table>
+
+                <hr class="hr" />
+
+                <div class="row">
+                    <div class="col-4">
+                        <p id="deep"></p>
+                    </div>
+                    <div class="col-4">
+                        <p id="original"></p>
+                    </div>
+                    <div class="col-4">
+                        <p id="shallow"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <h1 class="text-center">Chat</h1>
+                <div class="container mt-5">
+                    <div class="row g-0">
+                        <div class="chat-messages p-4" id="chat" style="max-width: 100%;">
+                        </div>
+                        <div class="input-group mt-3">
+                            <input type="text" class="form-control" placeholder="Type your message..." id="messageInput">
+                            <button class="btn btn-primary" id="sendMessageBtn">Send</button>
+                            <button class="btn btn-primary" id="undoMessageBtn">Undo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function () {
+            $('#hostGame').on('click', function (e) {
+                e.preventDefault();
+
+                const boardSize = $('#boardSize').val();
+                const enableObstacles = $('#obstacles').is(':checked');
+
+                $.ajax({
+                    url: '/Home/GetBoard',
+                    method: 'POST',
+                    data: { size: boardSize },
+                    success: function (response) {
+                        if ([3, 4, 5, 6, 9].includes(parseInt(boardSize))) {
+                            $('#original').text(response); // Display the poem in the original section
+                        } else {
+                            $('#board').html(response);
+                            $('#tableHidden').removeAttr('hidden');
+                        }
+                    },
+                    error: function (error) {
+                        console.error('Error fetching the board:', error);
+                        $('#gameStatus').text('Error fetching the board. Please try again.');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  max-width: 590px; /* Adjust the maximum width as needed */
+  width: 100%;
+  margin: auto; /* Center the container horizontally */
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top:20px;
+}
+
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  border:3px solid #e7caff;
+
+  background-color: #ebf2ff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.container button,
+.list-container button {
+  background-color: #ddb1ea;
+  color: #ebf2ff;
+  padding: 10px 15px;
+  border: none;
+
+  cursor: pointer;
+  margin-left: 20px;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.container button:hover,
+.list-container button:hover {
+  background-color: #ddb1ea; /* Change the color to your desired hover color */
+}
+
+.app-container {
+  background-color: #ebf2ff; /* Set your desired background color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+.list-container .custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust as needed */
+  background-color: #ddb1ea; /* Set your desired background color */
+}
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust as needed */
+  background-color: #ddb1ea; /* Set your desired background color */
+}
+
+.navbar {
+  background-color: #ddb1ea;
+  font-family: 'Roboto Mono', sans-serif;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+.navbar p {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 13px;
+    margin: 0; /* Reset margin */
+    line-height: 2; /* Adjust line height if necessary */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+}
+.navbar a:hover {
+  color: #617bfb; /* Change the color to your desired hover color */
+}
+
+
+.navbar .right {
+  margin-left: auto;
+}
+.right-links {
+   margin-right: auto;
+ }
+
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-links .right-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+
+.list-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ebf2ff;
+  border:3px solid #ddb1ea;
+  background-color: #ebf2ff;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.list-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust as needed */
+background-color: #ebf2ff;
+}
+
+.list-container th, .list-container td {
+  padding: 10px;
+  border: 1px solid #ebf2ff;
+}
+
+.list-container th {
+  background-color: #ddb1ea;
+  color: #ebf2ff;
+}
+
+.list-container td {
+  background-color: #ebf2ff;
+}
+
+.list-container td.empty-column {
+  /* Styles for the empty column */
+}
+
+footer {
+  background-color: #ddb1ea;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  color: #ebf2ff;
+  margin-top: 20px;
+  position: fixed; bottom: 0;
+}
+
+footer p {
+  margin: 0; /* Remove default margin */
+  text-align: center;
+  flex-grow: 1; /* Allow the <p> to take up remaining space */
+  font-family: 'Times New Roman', sans-serif;
+}
+
+.footer-link {
+  font-family: 'Times New Roman', sans-serif;
+  padding-right: 10px;
+}
+/* Add this style to hide links initially */
+.navbar-links {
+  display: none;
+}
+
+/* Add this style for the hamburger menu */
+.menu-toggle {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+  display: none; /* Initially hidden on larger screens */
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    left: 0;
+    background-color: #ddb1ea;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar-links li {
+    margin-bottom: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar ul.right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .navbar ul.navbar-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #ddb1ea;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar ul.navbar-links li {
+    margin-bottom: 10px;
+  }
+    .navbar-links.right {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0; /* Adjust as needed */
+      background-color: #ddb1ea;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .right-links {
+      margin-right: 0; /* Reset margin in mobile view */
+      text-align: center; /* Center the text in mobile view */
+    }
+}
+
+
+
+
+
+
+
+
+
